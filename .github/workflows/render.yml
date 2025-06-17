@@ -16,8 +16,6 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-      - name: Install Quarto Live
-        run: quarto add r-wasm/quarto-live
       - name: Install Python and Dependencies
         uses: actions/setup-python@v5
         with:
