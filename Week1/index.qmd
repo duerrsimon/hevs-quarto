@@ -2,3 +2,5 @@
 
 Lorem ipsum dolor sit amet.
 
+[Slides](https://duerrsimon.github.io/hevs-quarto/slides/Week1/slides.html){.btn .btn-outline-primary .btn role="button"} 
+

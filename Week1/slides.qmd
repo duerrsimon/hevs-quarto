@@ -1,6 +1,6 @@
 ---
-title: "Operating Systems, Code and Computation"
-subtitle: "Code Managment in Enterprises and Operating Systems"
+title: "Coursetitle"
+subtitle: "Week title"
 format:
   live-revealjs:
     slide-number: true
@@ -8,7 +8,7 @@ format:
     theme: ../hevs.scss
     show-slide-number: all
     logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
-    footer: "Operating Systems, Code and Computation"
+    footer: "Coursetitle"
 ---
 
 ## Slide 1 Title
