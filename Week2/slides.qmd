@@ -1,0 +1,22 @@
+---
+title: "Coursetitle"
+subtitle: "Week title"
+format:
+  live-revealjs:
+    slide-number: true
+    brand: ../_brand.yml
+    theme: ../hevs.scss
+    show-slide-number: all
+    logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
+    footer: "Coursetitle"
+---
+
+## Slide 1 Title
+
+- Point 1
+- Point 2
+
+## Slide 2 Title
+
+Lorem ipsum dolor sit amet.
+
