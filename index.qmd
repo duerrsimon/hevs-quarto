@@ -1,0 +1,4 @@
+# Useful info {.unnumbered}
+
+
+In this course we will cover how code projects can be managed on different operating systems using git and the differences between various operating systems. You will learn how to manage dependencies on a computer (for example on the architecture-level, operating system, user environment & system variables as well as  package management (python pip/conda)). We will use a real world example of deploying a python application for generating automatic plots as Docker image and discuss the individual components.  

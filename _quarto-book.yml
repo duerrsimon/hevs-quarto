@@ -1,0 +1,25 @@
+project:
+  type: book
+  output-dir: _book
+  post-render: quarto render --profile slides
+
+number-depth: 1
+
+book:
+  reader-mode: false
+  title: "Coursetitle"
+  chapters:
+    - index.qmd
+    - part: "First Part"
+      chapters: 
+       - Week1/index.qmd
+    - part: "Second Part"
+      chapters: 
+       - Week2/index.qmd
+    - part: "Third Part"
+    - part: "Fourth Part"
+    - part: "Fifth Part"
+
+format:
+  html:
+    theme: cosmo

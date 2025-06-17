@@ -1,0 +1,12 @@
+project:
+  output-dir: _slides
+  render:
+    - "*slides.qmd"
+
+
+format:
+  revealjs:
+    slide-number: true
+    show-slide-number: all
+    logo: img/hesso.svg
+    footer: "Operating Systems, Code and Computation"

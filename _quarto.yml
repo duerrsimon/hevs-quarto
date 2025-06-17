@@ -1,0 +1,12 @@
+profile:
+  default: slides
+author:
+    - name: Jane Doe
+      orcid: 0000-0002-4304-8106
+      institute: HES-SO Valais-Wallis
+    - name: John Doe
+      institute: HES-SO Valais-Wallis
+date: last-modified
+date-format: long
+  
+bibliography: references.bib
