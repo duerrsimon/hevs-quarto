@@ -14,7 +14,7 @@
     "href": "Week1/index.html",
     "title": "1  Week description",
     "section": "",
-    "text": "Lorem ipsum dolor sit amet.",
+    "text": "Lorem ipsum dolor sit amet.\nSlides",
     "crumbs": [
       "First Part",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week description</span>"
