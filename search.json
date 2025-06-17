@@ -1,0 +1,34 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Coursetitle",
+    "section": "",
+    "text": "Useful info\nIn this course we will cover how code projects can be managed on different operating systems using git and the differences between various operating systems. You will learn how to manage dependencies on a computer (for example on the architecture-level, operating system, user environment & system variables as well as package management (python pip/conda)). We will use a real world example of deploying a python application for generating automatic plots as Docker image and discuss the individual components.",
+    "crumbs": [
+      "Useful info"
+    ]
+  },
+  {
+    "objectID": "Week1/index.html",
+    "href": "Week1/index.html",
+    "title": "1  Week description",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet.",
+    "crumbs": [
+      "First Part",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week description</span>"
+    ]
+  },
+  {
+    "objectID": "Week2/index.html",
+    "href": "Week2/index.html",
+    "title": "2  Week title",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet.",
+    "crumbs": [
+      "Second Part",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Week title</span>"
+    ]
+  }
+]
