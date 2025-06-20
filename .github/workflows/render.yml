@@ -49,7 +49,7 @@ jobs:
           tmp_pdf_path="/tmp/$tmp_pdf_name"
           clean_slide=$(echo "$slide" | sed 's|^\./||')
           echo "http://localhost:8000/$clean_slide"
-          docker run --rm -t --network=host -v "$(pwd)":/slides v /tmp:/tmp astefanutti/decktape "http://localhost:8000/$clean_slide" "$tmp_pdf_path"
+          docker run --rm -t --network=host -v "$(pwd)":/slides -v /tmp:/tmp astefanutti/decktape "http://localhost:8000/$clean_slide" "$tmp_pdf_path"
           mv "/tmp/$tmp_pdf_name" "$pdf_path"
           done
       - name: Verify 
