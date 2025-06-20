@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Coursetitle",
     "section": "",
-    "text": "Useful info\nIn this course we will cover how code projects can be managed on different operating systems using git and the differences between various operating systems. You will learn how to manage dependencies on a computer (for example on the architecture-level, operating system, user environment & system variables as well as package management (python pip/conda)). We will use a real world example of deploying a python application for generating automatic plots as Docker image and discuss the individual components.",
+    "text": "Useful info\nIn this course we will cover how code projects can be managed on different operating systems using git and the differences between various operating systems. You will learn how to manage dependencies on a computer (for example on the architecture-level, operating system, user environment & system variables as well as package management (python pip/conda)). We will use a real world example of deploying a python application for generating automatic plots as Docker image and discuss the individual components.\nPDF Version",
     "crumbs": [
       "Useful info"
     ]
@@ -14,7 +14,29 @@
     "href": "Week1/index.html",
     "title": "1  Week description",
     "section": "",
-    "text": "Lorem ipsum dolor sit amet.\nSlides",
+    "text": "Exercise with Inline Solution accessible to the students\nLorem ipsum dolor sit amet.\n👨🏻‍🏫 Slides",
+    "crumbs": [
+      "First Part",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week description</span>"
+    ]
+  },
+  {
+    "objectID": "Week1/index.html#exercise-with-inline-solution-accessible-to-the-students",
+    "href": "Week1/index.html#exercise-with-inline-solution-accessible-to-the-students",
+    "title": "1  Week description",
+    "section": "",
+    "text": "# square each number\nfor x in range(5):\n  print(x**2)",
+    "crumbs": [
+      "First Part",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week description</span>"
+    ]
+  },
+  {
+    "objectID": "Week1/index.html#solution-only-visible-in-the-teacher-version",
+    "href": "Week1/index.html#solution-only-visible-in-the-teacher-version",
+    "title": "1  Week description",
+    "section": "Solution only visible in the teacher version",
+    "text": "Solution only visible in the teacher version\n\n\n# square each number\nfor x in range(5):\n  print(x**2)\n\n0\n1\n4\n9\n16",
     "crumbs": [
       "First Part",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week description</span>"
