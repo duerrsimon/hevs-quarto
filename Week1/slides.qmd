@@ -7,6 +7,8 @@ format:
     brand: ../_brand.yml
     theme: ../hevs.scss
     show-slide-number: all
+    preview-links: auto
+    chalkboard: true
     logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
     footer: "Coursetitle"
 ---

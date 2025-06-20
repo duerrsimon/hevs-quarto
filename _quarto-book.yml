@@ -21,5 +21,7 @@ book:
     - part: "Fifth Part"
 
 format:
-  html:
+  live-html:
     theme: cosmo
+  pdf:
+    documentclass: scrreprt

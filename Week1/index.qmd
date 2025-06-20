@@ -2,5 +2,34 @@
 
 Lorem ipsum dolor sit amet.
 
-[Slides](https://duerrsimon.github.io/hevs-quarto/slides/Week1/slides.html){.btn .btn-outline-primary .btn role="button"} 
+[👨🏻‍🏫 Slides](https://duerrsimon.github.io/hevs-quarto/slides/Week1/slides.html){.btn .btn-outline-primary .btn role="button"} 
 
+
+## Exercise with Inline Solution accessible to the students
+```{pyodide}
+#| exercise: ex_1
+
+# square each number
+for x in range(5):
+  print(______)
+```
+
+::: {.solution exercise="ex_1"}
+
+```
+# square each number
+for x in range(5):
+  print(x**2)
+```
+:::
+
+
+## Solution only visible in the teacher version
+
+::: {.onlyteacher}
+```{python}
+# square each number
+for x in range(5):
+  print(x**2)
+```
+:::

@@ -26,7 +26,15 @@ jobs:
       - name: Render Book and Slides
         run: |
           quarto render --profile book
-
+      - name: Build PDFs from slides
+        run: |
+          find ./_slides -name 'slides.html' | while read slide; do
+          echo "Converting $slide to PDF"
+          pdf_path="${slide%.html}.pdf"
+          docker run --rm -t -v "$(pwd)":/slides -v ~:/home/user astefanutti/decktape "$slide" "$pdf_path"
+          done
+      - name: Verify 
+        run: ls -l ./_slides/Week1/
       - name: Deploy _book to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:

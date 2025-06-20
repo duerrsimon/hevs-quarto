@@ -9,3 +9,5 @@ format:
     slide-number: true
     show-slide-number: all
     logo: img/hesso.svg
+  pdf:
+    documentclass: scrreprt
