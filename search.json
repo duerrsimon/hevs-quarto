@@ -14,7 +14,7 @@
     "href": "Week1/index.html",
     "title": "1  Week description",
     "section": "",
-    "text": "Exercise with Inline Solution accessible to the students\nLorem ipsum dolor sit amet.\n👨🏻‍🏫 Slides",
+    "text": "Exercise with Inline Solution accessible to the students\nLorem ipsum dolor sit amet.\n👨🏻‍🏫 Slides Slides PDF",
     "crumbs": [
       "First Part",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week description</span>"
@@ -47,7 +47,7 @@
     "href": "Week2/index.html",
     "title": "2  Week title",
     "section": "",
-    "text": "Lorem ipsum dolor sit amet.\nSlides",
+    "text": "Lorem ipsum dolor sit amet.\nSlides Slides PDF",
     "crumbs": [
       "Second Part",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Week title</span>"
