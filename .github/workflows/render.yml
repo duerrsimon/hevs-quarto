@@ -38,10 +38,11 @@ jobs:
           quarto render --profile book
       - name: Build PDFs from slides
         run: |
+          python3 -m http.server 8000
           find ./_slides -name 'slides.html' | while read slide; do
           echo "Converting $slide to PDF"
           pdf_path="${slide%.html}.pdf"
-          docker run --rm -t -v "$(pwd)":/slides -v ~:/home/user astefanutti/decktape "$slide" "$pdf_path"
+          docker run --rm -t -v "$(pwd)":/slides astefanutti/decktape "http://localhost:8000/$slide" "$pdf_path"
           done
       - name: Verify 
         run: ls -l ./_slides/Week1/
