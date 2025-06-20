@@ -16,6 +16,10 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tinytex: true
       - name: Install Python and Dependencies
         uses: actions/setup-python@v5
         with:
@@ -23,6 +27,9 @@ jobs:
           cache: 'pip'
       - run: pip install jupyter
       - run: pip install -r requirements.txt
+      - name: Remove .onlyteacher blocks from .qmd files
+        run: |
+          find . -name 'Week*/*.qmd' -print0 | xargs -0 sed -i '/:::\s*{\.onlyteacher}/,/:::/d'
       - name: Render Book and Slides
         run: |
           quarto render --profile book
