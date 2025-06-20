@@ -38,7 +38,7 @@ jobs:
           quarto render --profile book
       - name: Build PDFs from slides
         run: |
-          python3 -m http.server 8000
+          python3 -m http.server 8000 &
           find ./_slides -name 'slides.html' | while read slide; do
           echo "Converting $slide to PDF"
           pdf_path="${slide%.html}.pdf"
