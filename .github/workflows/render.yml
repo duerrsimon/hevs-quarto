@@ -50,7 +50,7 @@ jobs:
           clean_slide=$(echo "$slide" | sed 's|^\./||')
           echo "http://localhost:8000/$clean_slide"
           docker run --rm -t --network=host -v "$(pwd)":/slides -v /tmp:/tmp astefanutti/decktape "http://localhost:8000/$clean_slide" "$tmp_pdf_path"
-          mv "/tmp/$tmp_pdf_name" "$pdf_path"
+          cp "/tmp/$tmp_pdf_name" "$pdf_path"
           done
       - name: Verify 
         run: ls -l ./_slides/Week1/
