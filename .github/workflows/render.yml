@@ -29,7 +29,10 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Remove .onlyteacher blocks from .qmd files
         run: |
-          find . -name 'Week*/*.qmd' -print0 | xargs -0 sed -i '/:::\s*{\.onlyteacher}/,/:::/d'
+          for file in Week*/slides.qmd; do
+            [ -f "$file" ] || continue  # Skip if not a regular file
+            sed -i '/::: {.onlyteacher}/,/:::/d' "$file"
+          done
       - name: Render Book and Slides
         run: |
           quarto render --profile book
