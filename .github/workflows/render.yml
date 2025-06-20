@@ -42,9 +42,12 @@ jobs:
           find ./_slides -name 'slides.html' | while read slide; do
           echo "Converting $slide to PDF"
           pdf_path="${slide%.html}.pdf"
+          relative_pdf_path="${pdf_path#./}"
+          container_pdf_path="/slides/$relative_pdf_path"
+          echo "PDF will be saved to $container_pdf_path"
           clean_slide=$(echo "$slide" | sed 's|^\./||')
           echo "http://localhost:8000/$clean_slide"
-          docker run --rm -t --network=host -u $(id -u):$(id -g) -v "$(pwd)":/slides astefanutti/decktape --chrome-arg=--disable-crashpad --chrome-arg=--no-sandbox  "http://localhost:8000/$clean_slide" "$pdf_path"
+          docker run --rm -t --network=host -v "$(pwd)":/slides astefanutti/decktape "http://localhost:8000/$clean_slide" "$container_pdf_path"
           done
       - name: Verify 
         run: ls -l ./_slides/Week1/
