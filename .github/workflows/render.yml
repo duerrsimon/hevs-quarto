@@ -42,12 +42,15 @@ jobs:
           find ./_slides -name 'slides.html' | while read slide; do
           echo "Converting $slide to PDF"
           pdf_path="${slide%.html}.pdf"
-          relative_pdf_path="${pdf_path#./}"
-          container_pdf_path="/slides/$relative_pdf_path"
-          echo "PDF will be saved to $container_pdf_path"
+          relative_slide_path="${slide#./}"
+          url_path="/slides/$relative_slide_path"
+          # Output path inside container: use /tmp
+          tmp_pdf_name="$(basename "$pdf_path")"
+          tmp_pdf_path="/tmp/$tmp_pdf_name"
           clean_slide=$(echo "$slide" | sed 's|^\./||')
           echo "http://localhost:8000/$clean_slide"
-          docker run --rm -t --network=host -v "$(pwd)":/slides astefanutti/decktape "http://localhost:8000/$clean_slide" "$container_pdf_path"
+          docker run --rm -t --network=host -v "$(pwd)":/slides v /tmp:/tmp astefanutti/decktape "http://localhost:8000/$clean_slide" "$tmp_pdf_path"
+          mv "/tmp/$tmp_pdf_name" "$pdf_path"
           done
       - name: Verify 
         run: ls -l ./_slides/Week1/
