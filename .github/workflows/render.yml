@@ -44,7 +44,7 @@ jobs:
           pdf_path="${slide%.html}.pdf"
           clean_slide=$(echo "$slide" | sed 's|^\./||')
           echo "http://localhost:8000/$clean_slide"
-          docker run --rm -t --network=host -v "$(pwd)":/slides astefanutti/decktape "http://localhost:8000/$clean_slide" "$pdf_path"
+          docker run --rm -t --network=host -u $(id -u):$(id -g) -v "$(pwd)":/slides astefanutti/decktape "http://localhost:8000/$clean_slide" "$pdf_path"
           done
       - name: Verify 
         run: ls -l ./_slides/Week1/
