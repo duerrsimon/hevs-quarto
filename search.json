@@ -36,7 +36,7 @@
     "href": "Week1/index.html#solution-only-visible-in-the-teacher-version",
     "title": "1  Week description",
     "section": "Solution only visible in the teacher version",
-    "text": "Solution only visible in the teacher version\n\n\n# square each number\nfor x in range(5):\n  print(x**2)\n\n0\n1\n4\n9\n16",
+    "text": "Solution only visible in the teacher version",
     "crumbs": [
       "First Part",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Week description</span>"
