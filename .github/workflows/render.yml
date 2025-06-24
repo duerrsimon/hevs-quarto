@@ -52,8 +52,6 @@ jobs:
           docker run --rm -t --network=host -v "$(pwd)":/slides -v /tmp:/tmp astefanutti/decktape "http://localhost:8000/$clean_slide" "$tmp_pdf_path"
           cp "/tmp/$tmp_pdf_name" "$pdf_path"
           done
-      - name: Verify 
-        run: ls -l ./_slides/Week1/
       - name: Deploy _book to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
