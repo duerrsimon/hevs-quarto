@@ -29,7 +29,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Remove .onlyteacher blocks from .qmd files
         run: |
-          for file in Week*/slides.qmd; do
+          for file in Week*/*.qmd; do
             [ -f "$file" ] || continue  # Skip if not a regular file
             sed -i '/::: {.onlyteacher}/,/:::/d' "$file"
           done
