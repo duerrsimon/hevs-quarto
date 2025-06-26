@@ -8,7 +8,7 @@
 
 <meta name="author" content="Jane Doe">
 <meta name="author" content="John Doe">
-<meta name="dcterms.date" content="2025-06-24">
+<meta name="dcterms.date" content="2025-06-26">
 
 <title>1&nbsp; Week description – Coursetitle</title>
 <style>
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
 <script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -207,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 24, 2025</p>
+      <p class="date">June 26, 2025</p>
     </div>
   </div>
   
@@ -219,7 +248,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Lorem ipsum dolor sit amet.</p>
+<p>Lorem ipsum dolor sit amet. hello.</p>
+<p><span class="math display">\[
+e=mc^2
+\]</span></p>
 <p><a href="https://duerrsimon.github.io/hevs-quarto/slides/Week1/slides.html" class="btn btn-outline-primary" role="button">👨🏻‍🏫 Slides</a> <a href="https://duerrsimon.github.io/hevs-quarto/slides/Week1/slides.pdf" class="btn btn-outline-secondary" role="button">Slides PDF</a></p>
 <section id="exercise-with-inline-solution-accessible-to-the-students" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-with-inline-solution-accessible-to-the-students">Exercise with Inline Solution accessible to the students</h2>
