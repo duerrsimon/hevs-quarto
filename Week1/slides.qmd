@@ -1,5 +1,5 @@
 ---
-title: "{{< var title>}}"
+title: "Template Course"
 subtitle: "Week title"
 format:
   live-revealjs:
@@ -11,8 +11,8 @@ format:
     chalkboard: true
     logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
     footer: "{{< var title>}}"
-    header-logo: "{{< var title>}}/img/log-out.svg"
-    header-logo-link: "{{< var title>}}/Week2/"
+    header-logo: "/img/exit-left.svg"
+    header-logo-link: "/Week2/"
 filters:
   - reveal-header
 ---
