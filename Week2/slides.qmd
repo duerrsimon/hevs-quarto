@@ -11,7 +11,7 @@ format:
     chalkboard: true
     logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
     footer: "{{< var title>}}"
-    header-logo: "/dls-occ/img/exit-left.svg"
+    header-logo: "/img/exit-left.svg"
     header-logo-link: "/dls-occ/Week2/"
 filters:
   - reveal-header
