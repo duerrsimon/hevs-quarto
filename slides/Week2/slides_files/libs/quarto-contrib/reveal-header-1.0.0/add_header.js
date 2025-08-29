@@ -27,7 +27,7 @@ function header() {
     const logo_cloned = logo.cloneNode(true);
     const link = document.createElement('a');
     link.href = href;
-    link.target = '_blank';
+    link.target = '';
     link.appendChild(logo_cloned);
     logo.replaceWith(link);
   };
