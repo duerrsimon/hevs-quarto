@@ -1,0 +1,6 @@
+# Week title
+
+Lorem ipsum dolor sit amet.
+
+[Slides](https://duerrsimon.github.io/hevs-quarto/slides/Week2/slides.html){.btn .btn-outline-primary .btn role="button"} 
+[Slides PDF](https://duerrsimon.github.io/hevs-quarto/slides/Week2/slides.pdf){.btn .btn-outline-secondary .btn role="button"} 

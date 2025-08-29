@@ -1,0 +1,28 @@
+---
+title: "{{< var title>}}"
+subtitle: "Week title"
+format:
+  live-revealjs:
+    slide-number: true
+    brand: ../_brand.yml
+    theme: ../hevs.scss
+    show-slide-number: all
+    preview-links: auto
+    chalkboard: true
+    logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
+    footer: "{{< var title>}}"
+    header-logo: "{{< var title>}}/img/log-out.svg"
+    header-logo-link: "{{< var title>}}/Week2/"
+filters:
+  - reveal-header
+---
+
+## Slide 1 Title
+
+- Point 1
+- Point 2
+
+## Slide 2 Title
+
+Lorem ipsum dolor sit amet.
+

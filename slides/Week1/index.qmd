@@ -1,0 +1,32 @@
+# Week description
+
+Lorem ipsum dolor sit amet. hello.
+
+$$
+e=mc^2
+$$
+
+[👨🏻‍🏫 Slides]({{< var base_url>}}slides/Week1/slides.html){.btn .btn-outline-primary .btn role="button"} 
+[Slides PDF]({{< var base_url>}}slides/Week1/slides.pdf){.btn .btn-outline-secondary .btn role="button"} 
+
+## Exercise with Inline Solution accessible to the students
+```{pyodide}
+#| exercise: ex_1
+
+# square each number
+for x in range(5):
+  print(______)
+```
+
+::: {.solution exercise="ex_1"}
+
+```
+# square each number
+for x in range(5):
+  print(x**2)
+```
+:::
+
+
+## Solution only visible in the teacher version
+
