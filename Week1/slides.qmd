@@ -8,11 +8,10 @@ format:
     theme: ../hevs.scss
     show-slide-number: all
     preview-links: auto
-    chalkboard: true
     logo: https://www.hevs.ch/_nuxt/img/logo_hesso.9af1d79.svg
     footer: "{{< var title>}}"
     header-logo: "/img/exit-left.svg"
-    header-logo-link: "/hevs-quarto/Week2/"
+    header-logo-link: "/{{< var folder>}}/Week2/"
 filters:
   - reveal-header
 ---

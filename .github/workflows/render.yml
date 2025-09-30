@@ -68,3 +68,46 @@ jobs:
           publish_branch: gh-pages
           destination_dir: slides
           keep_files: true
+      # Deploy to dls.hevs.ch, contact me for API_TOKEN
+      # - name: Read folder and set as env variable
+      #   run: |
+      #     python3 - <<'EOF'
+      #     import yaml
+      #     import os
+
+      #     # Load _variables.yml
+      #     with open('_variables.yml', 'r') as f:
+      #         data = yaml.safe_load(f)
+
+      #     # Get the folder value
+      #     folder = data.get('folder')
+      #     print(f"Folder: {folder}")
+
+      #     # Write to GITHUB_ENV to pass to future steps
+      #     with open(os.environ['GITHUB_ENV'], 'a') as env_file:
+      #         env_file.write(f"FOLDER={folder}\n")
+      #     EOF
+      # - name: Package and upload book
+      #   env:
+      #     API_TOKEN: ${{ secrets.API_TOKEN }}
+      #   run: |
+
+      #     echo "Folder: $FOLDER"
+
+      #     # Create zip file with _book
+      #     (cd _book && zip -r ../${FOLDER}.zip * .)
+      #     mv _slides slides
+      #     zip -r ${FOLDER}.zip slides
+
+      #     # Upload using curl with API_TOKEN secret
+      #     curl -X POST \
+      #       -F "API_TOKEN=${API_TOKEN}" \
+      #       -F "destination=${FOLDER}" \
+      #       -F "zip_file=@${FOLDER}.zip" \
+      #       https://dls.hevs.ch/upload/
+      # - name: 'Upload Artifact'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: folder
+      #     path: folder.zip
+      #     retention-days: 5

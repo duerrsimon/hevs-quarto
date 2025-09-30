@@ -1,4 +1,4 @@
-s# Markdown Slide Master
+# Markdown Slide Master
 
 This repository contains a template for creating slides and books using Quarto. It is designed to be used as a starting point for your own courses in HES-SO Valais-Wallis style. 
 
