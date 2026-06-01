@@ -54,3 +54,156 @@ Additionally a PDF of the book will be generated.
 
 GitHub Actions will automatically also generate a PDF version of the slides. 
 
+
+## Slide features
+
+The example deck in `Week1/slides.qmd` demonstrates the available building blocks. Enable the interactive ones by listing them under `filters:` in the slide front matter:
+
+```yaml
+filters:
+  - reveal-header
+  - qcm
+  - textanswer
+```
+
+#### Interactive code & solution cells
+`{pyodide}` blocks run Python in the browser (via the [Quarto Live](https://r-wasm.github.io/quarto-live/) extension). Attach an optional hint and a hidden solution to any exercise:
+
+````markdown
+```{pyodide}
+#| exercise: ex_1
+for x in range(5):
+  print(______)
+```
+
+::: { .hint exercise="ex_1" }
+Replace the blank with `x` squared.
+:::
+
+::: { .solution exercise="ex_1" }
+```{pyodide}
+#| exercise: ex_1
+#| solution: true
+for x in range(5):
+  print(x ** 2)
+```
+:::
+````
+
+Set `show-solutions: false` (and/or `show-hints: false`) in the front matter to strip them from a public build.
+
+#### Multiple-choice questions (`qcm`)
+A self-checking, auto-shuffled multiple-choice question. Mark correct answers with `+`, wrong ones with `-` (escape them as `\+` / `\-` so Pandoc keeps them as one block):
+
+```markdown
+::: {.qcm points="1" solution="true"}
+### Which of these are valid Python container types?
+
+\+ list
+\+ dict
+\- array (built-in)
+\+ set
+:::
+```
+
+`solution="true"` adds a **Verify** button; omit it to use the question live in class. `points="N"` is shown in the heading.
+
+#### Free-text answer boxes (`textanswer`)
+A printable answer box for worksheets and PDF exports:
+
+```markdown
+::: {.textanswer lines="4" points="3"}
+### Explain what a list comprehension does and give one example.
+:::
+```
+
+`lines` controls the box height; `points` is shown in the heading.
+
+#### Incremental & highlight-last
+`::: {.incremental}` reveals a list one item per click. Add `.highlight-last` (styled in `hevs.scss`) to dim already-shown items and keep the just-revealed one bright.
+
+#### Timeline
+The [`timeline`](https://github.com/EmilHvitfeldt/quarto-timeline) filter lays out `.event` divs along a line:
+
+```markdown
+:::: {.timeline}
+::: {.event data-label="Week 1" .fragment}
+Python & tooling
+:::
+::: {.event data-label="Week 2" .fragment}
+Collecting data
+:::
+::::
+```
+
+Install with `quarto add EmilHvitfeldt/quarto-timeline`. Layout/style variants include `.vertical`, `.vertical-alt`, `.tl-compact`, `.tl-card`, …
+
+#### Editable slides
+The [`editable`](https://github.com/EmilHvitfeldt/quarto-revealjs-editable) plugin lets you edit slide elements live during a lecture and save them back to the source. Enable it with both:
+
+```yaml
+revealjs-plugins:
+  - editable
+filters:
+  - editable
+```
+
+Install with `quarto add emilhvitfeldt/quarto-revealjs-editable`. Pre-mark elements with `.editable`, or use the toolbar **Modify** button to edit anything ad-hoc.
+
+#### Arrows
+The [`arrow`](https://github.com/EmilHvitfeldt/quarto-arrows) shortcode draws curved SVG arrows to annotate slides:
+
+```markdown
+Cause {{</* arrow from="0,12" to="70,12" color="#009efa" */>}} Effect
+
+{{</* arrow from="250,250" to="650,180" curve="0.4" label="look here!" position="absolute" */>}}
+```
+
+Install with `quarto add EmilHvitfeldt/quarto-arrows`. Coordinates are in pixels; `position="absolute"` lets you point anywhere on the slide. Options include `curve`, `bend`, `dash`, `label`, and `fragment` (draw-on-click).
+
+> **Tip:** interactive iframes (polls, dashboards) grab keyboard focus, which traps arrow-key navigation. Keep them on the **last** slide of a deck.
+>
+> **Gotcha:** do **not** wrap a `.qcm` or `.textanswer` block in an extra scaling `<div>` (`transform`/`zoom`) on a slide — under `live-revealjs` an extra wrapper around the filter-generated element breaks navigation *to that slide*. Size them with CSS in `hevs.scss` instead (see `.qcm-question` / `.textanswer-container`).
+
+
+## Recap quizzes → Moodle
+
+Each week can ship a `questions.md` file (see `Week1/questions.md`). Write the multiple-choice questions once in plain markdown and export them to a Moodle XML question bank. A leading `*` marks the correct answer; inline `` `code` ``, fenced code blocks and `![images](pic.png)` are supported (images are embedded as base64, so the export is self-contained).
+
+```markdown
+# Week 1 — Recap
+
+**1. What does `len(x)` return for a list?**
+- *A) The number of elements
+- B) The sum of the elements
+- C) The largest element
+```
+
+#### Convert a single week
+```
+python extensions/questions_to_moodle.py Week1/questions.md
+```
+
+#### Convert all weeks at once
+```
+python extensions/questions_to_moodle.py --all
+```
+
+#### Output all XML files to a specific directory
+```
+python extensions/questions_to_moodle.py --all --output-dir moodle_xml
+```
+
+The generated `.xml` files (one per week) can be imported directly via Moodle's **Question bank > Import > Moodle XML format**.
+
+
+## Notebook solutions → PDF
+
+Reference solutions written as Jupyter notebooks (`*/*.ipynb`) can be rendered to HTML and then to PDF for distribution:
+
+```
+python extensions/convert_solutions.py
+```
+
+This requires `playwright` (`pip install playwright && playwright install chromium`).
+

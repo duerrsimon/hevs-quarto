@@ -66,6 +66,42 @@ $font-headings: 'Inter', sans-serif;
     color: $color-dark-grey
 }
 
+// Make just the qcm / textanswer answer boxes smaller (not the whole slide).
+// NOTE: do NOT wrap these in a scaling <div> (transform/zoom) on a slide —
+// an extra wrapper around the filter-generated div breaks reveal.js
+// navigation under live-revealjs. Size them via CSS here instead.
+// Keep them full-width (no max-width) so the card border doesn't look like a
+// stray box at 2/3 of the slide; shrink the interactive controls themselves.
+.reveal .qcm-question {
+    font-size: 0.7em;
+}
+
+.reveal .qcm-question input[type="checkbox"] {
+    width: 1em;
+    height: 1em;
+}
+
+.reveal .textanswer-container {
+    font-size: 0.7em;
+}
+
+.reveal .textanswer-box {
+    min-height: 2em;
+}
+
+// Highlight-last: in an incremental list, dim already-shown items and keep
+// the most recently revealed one (reveal.js marks it .current-fragment) bright.
+.reveal .highlight-last .fragment.visible:not(.current-fragment) {
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+}
+
+.reveal .highlight-last .fragment.current-fragment {
+    opacity: 1;
+    font-weight: 700;
+    color: #009efa;
+}
+
 .title {
     font-size: 3rem !important;
     font-weight: 700;

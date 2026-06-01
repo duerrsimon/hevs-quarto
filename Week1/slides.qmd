@@ -14,6 +14,9 @@ format:
     header-logo-link: "/{{< var folder>}}/Week2/"
 filters:
   - reveal-header
+  - qcm
+  - textanswer
+  - timeline
 ---
 
 ## Slide 1 Title
@@ -27,6 +30,20 @@ filters:
 ![Example img](img/example.webp)
 
 
+## Rule 2: Use Participatory Live Coding {.smaller}
+
+> Actually type the code and narrate it as you teach. Have the participants follow along as well.
+
+- Demonstrates your **best practices** for real workflows
+- Making **mistakes** is a good thing — it shows you are human and how you **debug**
+- Naturally **slows you down**, so you don't go too fast for students
+
+Rooted in the *"I do, we do, you do"* method, pioneered for programming by [The Carpentries](https://carpentries.org/). The `{pyodide}` cells on the next slides let students follow along live, in the browser.
+
+::: aside
+Timbers, T. A., & Çetinkaya-Rundel, M. (2026). Ten simple rules for teaching data science. *PLoS Computational Biology*. [arXiv:2602.02874](https://arxiv.org/abs/2602.02874)
+:::
+
 ## Interactive Code
 
 ```{pyodide}
@@ -38,6 +55,34 @@ for x in range(5):
 ```
 
 [More documentation on Live Code](https://r-wasm.github.io/quarto-live/)
+
+## Solution Cells
+
+Attach a hidden solution (and optional hint) to any `exercise`. A *Show solution* button appears under the editor.
+
+```{pyodide}
+#| exercise: ex_solution
+# square each number
+for x in range(5):
+  print(______)
+```
+
+::: { .hint exercise="ex_solution" }
+Replace the blank with `x` raised to the power of two.
+:::
+
+::: { .solution exercise="ex_solution" }
+```{pyodide}
+#| exercise: ex_solution
+#| solution: true
+for x in range(5):
+  print(x ** 2)
+```
+:::
+
+::: aside
+Public/student builds keep solutions; set `show-solutions: false` in the front matter to strip them.
+:::
 
 ## Line Highlighting
 
@@ -95,11 +140,142 @@ Right column
 Some additional commentary of more peripheral interest.
 :::
 
+## Multiple Choice (QCM)
+
+The `qcm` filter renders a self-checking, auto-shuffled question. Mark answers `\+` (correct) / `\-` (wrong).
+
+::: {.qcm points="1" solution="true"}
+### Valid Python container types?
+
+\+ list
+\+ dict
+\- array (built-in)
+\+ set
+:::
+
+::: aside
+`solution="true"` adds a **Verify** button; `points="N"` shows in the heading.
+:::
+
+## Free-Text Answers
+
+The `textanswer` filter renders a printable answer box for worksheets and PDF exports.
+
+::: {.textanswer lines="3" points="3"}
+### What does a list comprehension do?
+:::
+
+::: aside
+`lines` sets the box height; `points` shows in the heading.
+:::
+
+## Recap Quizzes → Moodle
+
+Each week can ship a `questions.md` file. Write questions once in plain markdown; export them to a Moodle XML question bank.
+
+```markdown
+# Week 1 — Recap
+
+**1. What does `len(x)` return for a list?**
+- *A) The number of elements
+- B) The sum of the elements
+- C) The largest element
+```
+
+A leading `*` marks the correct answer. Inline `code`, fenced code blocks and `![images](pic.png)` are supported (images are embedded as base64).
+
+## Recap Quizzes → Moodle {.smaller}
+
+Convert with the bundled script, then import the `.xml` via **Question bank → Import → Moodle XML**:
+
+```bash
+# Convert a single week
+python extensions/questions_to_moodle.py Week1/questions.md
+
+# Convert every Week*/questions.md at once
+python extensions/questions_to_moodle.py --all
+
+# Collect all XML in one folder
+python extensions/questions_to_moodle.py --all --output-dir moodle_xml
+```
+
+## Jupyter Notebook Flow {.smaller}
+
+Weekly labs are in-browser Jupyter notebooks:
+
+1. Open the link — runs in the browser, **no install**.
+2. Built-in submission form (student e-mail).
+3. Work saved **locally in the browser** — reopen to resume.
+4. Submit through the embedded form for grading.
+
+::: aside
+Reference solutions → PDF via `extensions/convert_solutions.py`.
+:::
+
+## Incremental Lists
+
+Add `.incremental` to reveal list items one click at a time.
+
+::: {.incremental}
+- First point appears
+- Then the second
+- Finally the third
+:::
+
+::: aside
+Set `incremental: true` in the front matter to make it the default for every list.
+:::
+
+## Highlight the Current Item {.smaller}
+
+Combine `.incremental` with `.highlight-last` to dim earlier points and keep focus on the one just revealed.
+
+::: {.incremental .highlight-last}
+- Collect the data
+- Clean and explore it
+- Model and evaluate
+- Communicate the result
+:::
+
+## Timeline
+
+The [`timeline`](https://github.com/EmilHvitfeldt/quarto-timeline) filter renders events along a line. Each `.event` has a `data-label`.
+
+:::: {.timeline .tl-compact}
+::: {.event data-label="Week 1" .fragment}
+Python & tooling
+:::
+::: {.event data-label="Week 2" .fragment}
+Collecting data
+:::
+::: {.event data-label="Week 3" .fragment}
+Visualisation
+:::
+::: {.event data-label="…" .fragment}
+Group project
+:::
+::::
+
+## Arrows
+
+The `arrow` shortcode draws curved SVG arrows to annotate slides.
+
+Cause {{< arrow from="0,12" to="70,12" color="#009efa" >}} Effect
+
+Use `position="absolute"` with pixel coordinates to point anywhere on the slide:
+
+{{< arrow from="250,250" to="650,180" color="#6cc757" curve="0.4" width="3" label="look here!" position="absolute" >}}
+
+::: aside
+Install with `quarto add EmilHvitfeldt/quarto-arrows`. Options include `curve`, `bend`, `dash`, `label`, and `fragment` for draw-on-click.
+:::
+
 ## Iframe
 
-<iframe allowfullscreen frameborder="0" height="100%" mozallowfullscreen style="min-width: 500px; min-height: 355px" src="https://app.wooclap.com/events/TDLGXL/questions/690b2ee5f285fa1af30e2001" width="100%"></iframe>
+Embed live web content (polls, dashboards, demos):
 
-Full screen example next page
+<iframe allowfullscreen frameborder="0" height="500" mozallowfullscreen style="min-width: 500px;" src="https://app.wooclap.com/events/TDLGXL/questions/690b2ee5f285fa1af30e2001" width="100%"></iframe>
 
-
-## {background-iframe="https://app.wooclap.com/events/TDLGXL/questions/690b2ee5f285fa1af30e2001" background-interactive="true"}
+::: aside
+Interactive iframes grab keyboard focus, so keep them on the **last** slide — otherwise arrow-key navigation can get trapped here.
+:::
