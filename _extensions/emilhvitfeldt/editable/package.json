@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "esbuild": "^0.20.0",
-    "vitest": "^1.0.0"
+    "vitest": "^4.1.8"
   },
   "dependencies": {
     "quill": "^2.0.2"
