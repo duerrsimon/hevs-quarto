@@ -12,8 +12,8 @@
     "test:run": "vitest run"
   },
   "devDependencies": {
-    "esbuild": "^0.20.0",
-    "vitest": "^1.0.0"
+    "esbuild": "^0.28.1",
+    "vitest": "^4.1.8"
   },
   "dependencies": {
     "quill": "^2.0.2"
